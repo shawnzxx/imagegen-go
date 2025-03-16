@@ -116,5 +116,11 @@ func sanitizeFilename(filename string) string {
 		sanitized = sanitized[:50]
 	}
 
-	return strings.Trim(sanitized, "-")
+	// 确保文件名不为空
+	sanitized = strings.Trim(sanitized, "-")
+	if sanitized == "" {
+		sanitized = "image"
+	}
+
+	return sanitized
 }
